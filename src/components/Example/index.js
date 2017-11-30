@@ -5,17 +5,26 @@ import Code from "../Code";
 import Triangle from "../Triangle";
 import * as Styled from "./styled";
 
-const example = `cinderella().add({
-  targets: '.triangle',
-  transform: {
-    translateX: {
-      from: 0,
-      to: '200px',
-      duration: 750,
-      easing: 'easeInOutElastic'
+const example = `cinderella({ loop: true, direction: "alternate" })
+  .add({
+    targets: ".triangle",
+    transform: {
+      translateX: {
+        from: 0,
+        to: "500px"
+      },
+      rotateZ: {
+        from: 0,
+        to: "180deg"
+      }
+    },
+    defaults: {
+      easing: "easeInOutQuart",
+      delay: 100,
+      duration: 1000
     }
-  }
-}).play()`;
+  })
+  .play()`;
 
 export default class Example extends Component {
   componentDidMount() {
@@ -34,14 +43,14 @@ export default class Example extends Component {
       direction: "alternate"
     })
       .add({
-        targets: ".triangle",
+        targets: triangle,
         transform: {
           translateX: {
-            from: "0px",
+            from: 0,
             to: `${containerWidth - triangleWidth}px`
           },
           rotateZ: {
-            from: "0deg",
+            from: 0,
             to: "180deg"
           }
         },
