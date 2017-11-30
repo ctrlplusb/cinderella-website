@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Theme from "../Theme";
+import Menu from "../Menu";
 import Home from "../Home";
+import Footer from "../Footer";
 import Sample from "../Sample";
 import * as Styled from "./styled";
 
@@ -12,6 +14,7 @@ export default function App() {
         <Styled.Container>
           <Styled.Header>
             <Styled.Heading>cinderella</Styled.Heading>
+            <Menu />
           </Styled.Header>
           <Styled.Main>
             <Switch>
@@ -19,6 +22,7 @@ export default function App() {
               <Route path="/demo/:id" component={Sample} />
             </Switch>
           </Styled.Main>
+          <Footer />
         </Styled.Container>
       </Theme>
     </Router>

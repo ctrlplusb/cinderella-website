@@ -3,7 +3,8 @@ import g from "glamorous";
 export const Container = g.div({
   height: "100vh",
   display: "flex",
-  flexDirection: "column"
+  flexDirection: "column",
+  padding: "0 15px"
 });
 
 export const Header = g.div({
@@ -14,6 +15,11 @@ export const Main = g.div({
   flexGrow: 1,
   display: "flex",
   height: "100%"
+});
+
+export const Footer = g.div({
+  textAlign: "center",
+  margin: "20px 0"
 });
 
 export const Heading = g.h1({

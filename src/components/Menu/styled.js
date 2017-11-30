@@ -1,7 +1,8 @@
 import g from "glamorous";
 
 export const Container = g.div(({ theme }) => ({
-  width: "100%",
+  display: "flex",
+  justifyContent: "space-between",
   maxWidth: theme.layout.narrow,
-  margin: "0 auto"
+  margin: "0 auto 20px"
 }));
