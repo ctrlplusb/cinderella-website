@@ -1,7 +1,7 @@
 import { css } from "glamor";
 
-import vt323Woff from "../../fonts/VT323-Regular.woff";
-import vt323Woff2 from "../../fonts/VT323-Regular.woff2";
+import vt323Woff from "./fonts/VT323-Regular.woff";
+import vt323Woff2 from "./fonts/VT323-Regular.woff2";
 
 css.global("@font-face", {
   fontFamily: '"VT323 Regular"',
@@ -13,9 +13,8 @@ css.global("@font-face", {
 });
 
 css.global("body", {
-  // backgroundColor: Theme.colors.contrast,
   fontFamily: '"VT323 Regular", monospace',
-  fontSize: 16,
+  fontSize: 18,
   fontWeight: 200,
   lineHeight: "20px"
 });

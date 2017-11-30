@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Theme from "../Theme";
+import Home from "../Home";
 import Sample from "../Sample";
 import * as Styled from "./styled";
 
@@ -14,6 +15,7 @@ export default function App() {
           </Styled.Header>
           <Styled.Main>
             <Switch>
+              <Route exact path="/" component={Home} />
               <Route path="/demo/:id" component={Sample} />
             </Switch>
           </Styled.Main>

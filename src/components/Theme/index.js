@@ -1,7 +1,7 @@
 import "glamor/reset";
 import React from "react";
 import { ThemeProvider } from "glamorous";
-import * as theme from "../../style/theme";
+import * as theme from "./theme";
 
 import "./globals";
 

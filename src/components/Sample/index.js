@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CodeHighlight from "../CodeHighlight";
+import Code from "../Code";
 import * as Styled from "./styled";
 
 export default class Sample extends Component {
@@ -45,7 +45,7 @@ export default class Sample extends Component {
     return (
       <Styled.Container>
         <Styled.Column>
-          <CodeHighlight code={source} />
+          <Code source={source} />
         </Styled.Column>
         <Styled.Column>
           <Demo />

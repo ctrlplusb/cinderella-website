@@ -4,18 +4,18 @@ import PropTypes from "prop-types";
 import Prism from "prismjs";
 import * as Styled from "./styled";
 
-export default function CodeHighlight({ code }) {
+export default function Code({ source }) {
   return (
     <pre>
       <Styled.Code
         dangerouslySetInnerHTML={{
-          __html: Prism.highlight(code, Prism.languages.javascript)
+          __html: Prism.highlight(source, Prism.languages.javascript)
         }}
       />
     </pre>
   );
 }
 
-CodeHighlight.propTypes = {
-  code: PropTypes.string.isRequired
+Code.propTypes = {
+  source: PropTypes.string.isRequired
 };
