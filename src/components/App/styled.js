@@ -1,7 +1,7 @@
 import g from "glamorous";
 
 export const Container = g.div({
-  height: "100vh",
+  minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
   padding: "0 15px"
