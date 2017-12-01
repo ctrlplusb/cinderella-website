@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Theme from "../Theme";
-import Menu from "../Menu";
-import Home from "../Home";
+import Credits from "../Credits";
 import Footer from "../Footer";
+import Home from "../Home";
+import Menu from "../Menu";
 import Sample from "../Sample";
+import Theme from "../Theme";
 import * as Styled from "./styled";
 
 export default function App() {
@@ -19,7 +20,8 @@ export default function App() {
           <Styled.Main>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/demo/:id" component={Sample} />
+              <Route exact path="/demo/:id" component={Sample} />
+              <Route exact path="/credits" component={Credits} />
             </Switch>
           </Styled.Main>
           <Footer />
