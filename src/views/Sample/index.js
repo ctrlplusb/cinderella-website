@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Code from "../Code";
+import Code from "../../components/Code";
 import * as Styled from "./styled";
 
 export default class Sample extends Component {

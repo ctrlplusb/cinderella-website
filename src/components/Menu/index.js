@@ -1,20 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import * as Styled from "./styled";
 
 export default function Menu() {
   return (
     <Styled.Container>
-      <a href="/">home</a>
+      <Link to="/">home</Link>
       <span>|</span>
-      <a href="/install">install</a>
+      <Link to="/install">install</Link>
       <span>|</span>
-      <a href="/tutorial">tutorial</a>
+      <Link to="/tutorial">tutorial</Link>
       <span>|</span>
-      <a href="/api">api</a>
+      <Link to="/api">api</Link>
       <span>|</span>
-      <a href="/demos">demos</a>
+      <Link to="/demos">demos</Link>
       <span>|</span>
-      <a href="/credits">credits</a>
+      <Link to="/credits">credits</Link>
     </Styled.Container>
   );
 }

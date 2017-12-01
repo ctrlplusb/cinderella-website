@@ -1,15 +1,16 @@
+import Prism from "prismjs";
+import "prismjs/components/prism-bash";
 import "prismjs/themes/prism-solarizedlight.css";
 import React from "react";
 import PropTypes from "prop-types";
-import Prism from "prismjs";
 import * as Styled from "./styled";
 
-export default function Code({ source }) {
+export default function Code({ source, language }) {
   return (
     <pre>
       <Styled.Code
         dangerouslySetInnerHTML={{
-          __html: Prism.highlight(source, Prism.languages.javascript)
+          __html: Prism.highlight(source, Prism.languages[language])
         }}
       />
     </pre>
@@ -17,5 +18,10 @@ export default function Code({ source }) {
 }
 
 Code.propTypes = {
-  source: PropTypes.string.isRequired
+  source: PropTypes.string.isRequired,
+  language: PropTypes.oneOf(["javascript", "markup", "bash"])
+};
+
+Code.defaultProps = {
+  language: "javascript"
 };

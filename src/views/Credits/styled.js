@@ -8,6 +8,9 @@ export const Container = g.div({
   textAlign: "center",
   position: "relative",
   overflow: "hidden"
+  // WebkitBackfaceVisibility: "hidden",
+  // WebkitPerspective: 1000,
+  // WebkitTransform: "translate3d(0, 0, 0)"
 });
 
 export const FadeOutTop = g.div({
@@ -17,7 +20,8 @@ export const FadeOutTop = g.div({
   width: "100%",
   height: 100,
   background:
-    "linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0) 100%)"
+    "linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0) 100%)",
+  pointerEvents: "none"
 });
 
 export const FadeInBottom = g.div({
@@ -27,7 +31,8 @@ export const FadeInBottom = g.div({
   width: "100%",
   height: 100,
   background:
-    "linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 100%)"
+    "linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 100%)",
+  pointerEvents: "none"
 });
 
 export const Paragraph = g.p({

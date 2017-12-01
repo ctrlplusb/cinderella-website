@@ -23,7 +23,7 @@ export default class Credits extends Component {
           translateY: {
             from: `${offset}px`,
             to: `-${offset}px`,
-            duration: containerHeight / 50 * 1000
+            duration: Math.round(containerHeight / 50 * 1000)
           }
         }
       })

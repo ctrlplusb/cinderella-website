@@ -1,5 +1,5 @@
 import React from "react";
-import Example from "../Example";
+import Example from "../../components/Example";
 import * as CommonStyled from "../../styled";
 import * as Styled from "./styled";
 
