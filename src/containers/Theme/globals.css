@@ -1,10 +1,8 @@
-import vt323Woff from "./fonts/VT323-Regular.woff";
-import vt323Woff2 from "./fonts/VT323-Regular.woff2";
-
-export default `
 @font-face {
   font-family: "VT323 Regular";
-  src: url("${vt323Woff2}") format("woff2"), url("${vt323Woff}") format("woff");
+  src: url("/fonts/VT323-Regular.woff2") format("woff2"), url("/fonts/VT323-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 
 *, *:before, *:after {
@@ -47,4 +45,3 @@ h1, h2, h3, h4, h5, h6, label, p, button, abbr, a, span, small {
 img {
   max-width: 100%;
 }
-`;
