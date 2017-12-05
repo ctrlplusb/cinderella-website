@@ -17,5 +17,5 @@ export const ClickMeArea = g.div({
 
 export const Paragraph = g(CommonStyled.Paragraph)({
   cursor: "pointer",
-  paddingLeft: "5rem"
+  paddingLeft: "4rem"
 });
