@@ -7,7 +7,7 @@ export const Anchor = g.a(({ disabled }) => ({
 }));
 
 export const H2 = g.h2({
-  fontSize: `${18 / 16}rem`,
+  fontSize: `1rem`,
   fontWeight: "bold",
   margin: `${9 / 16}rem 0`,
   textDecoration: "underline"

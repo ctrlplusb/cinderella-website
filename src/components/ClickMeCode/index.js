@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { findDOMNode } from "react-dom";
+import PropTypes from "prop-types";
 import cinderella from "cinderella";
 import Code from "../Code";
 import { Container, ClickMeArea, Paragraph } from "./styled";
 
-export default class StoryCode extends Component {
+export default class ClickMeCode extends Component {
   componentDidMount() {
     this.animation = cinderella({ loop: true })
       .add({
@@ -41,7 +42,7 @@ export default class StoryCode extends Component {
   };
 
   render() {
-    const { source, onClick } = this.props;
+    const { label, onClick, source } = this.props;
     return (
       <div>
         <Container>
@@ -52,9 +53,17 @@ export default class StoryCode extends Component {
           <span role="img" aria-label="">
             👆
           </span>{" "}
-          Click to play
+          {label}
         </Paragraph>
       </div>
     );
   }
 }
+
+ClickMeCode.propTypes = {
+  label: PropTypes.string
+};
+
+ClickMeCode.defaultProps = {
+  label: "Click me"
+};

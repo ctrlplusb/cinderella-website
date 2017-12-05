@@ -29,6 +29,18 @@ const example = `cinderella({ loop: true, direction: "alternate" })
 
 export default class Example extends Component {
   componentDidMount() {
+    this.animateTriangle();
+    window.addEventListener("resize", this.animateTriangle);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.animateTriangle);
+  }
+
+  animateTriangle = () => {
+    if (this.animation) {
+      this.animation.stop();
+    }
     this.animation = cinderella({
       loop: true,
       direction: "alternate"
@@ -53,7 +65,7 @@ export default class Example extends Component {
         }
       })
       .play();
-  }
+  };
 
   triangleRef = el => {
     if (!el) return;
@@ -68,10 +80,10 @@ export default class Example extends Component {
   render() {
     return (
       <Styled.Container>
-        <Code source={example} />
         <Styled.AnimationContainer innerRef={this.containerRef}>
           <Triangle innerRef={this.triangleRef} />
         </Styled.AnimationContainer>
+        <Code source={example} />
       </Styled.Container>
     );
   }

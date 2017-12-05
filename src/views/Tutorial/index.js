@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import cinderella from "cinderella";
 import Triangle from "../../components/Triangle";
-import StoryCode from "../../components/StoryCode";
+import ClickMeCode from "../../components/ClickMeCode";
 import { Anchor, H2, NarrowContent, Notes } from "../../styled";
 import { Pager, Stage } from "./styled";
 
 const pagesContext = require.context("./pages", false, /page[0-9]+.js/);
 const pagesCount = pagesContext.keys().length;
 
-export default class Story extends Component {
+export default class Tutorial extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -138,7 +138,7 @@ export default class Story extends Component {
       <div>
         {Prose && <Prose />}
         {animation && (
-          <StoryCode
+          <ClickMeCode
             source={animation.source}
             onClick={() => {
               this.setState({
@@ -158,7 +158,9 @@ export default class Story extends Component {
 
     return (
       <NarrowContent>
-        <H2>The Stubborn Triangle</H2>
+        <H2>
+          The Stubborn Triangle (<em>Work in progress</em>)
+        </H2>
         <Stage>
           <Triangle className="triangle" />
         </Stage>
