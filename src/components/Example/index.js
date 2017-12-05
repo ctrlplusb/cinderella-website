@@ -4,6 +4,7 @@ import cinderella from "cinderella";
 import Code from "../Code";
 import Triangle from "../Triangle";
 import * as Styled from "./styled";
+import * as DOMUtils from "../../utils/dom";
 
 const example = `cinderella({ loop: true, direction: "alternate" })
   .add({
@@ -28,26 +29,17 @@ const example = `cinderella({ loop: true, direction: "alternate" })
 
 export default class Example extends Component {
   componentDidMount() {
-    const container = findDOMNode(this.containerEl);
-    const containerStyle = getComputedStyle(container);
-    const containerWidth = parseFloat(
-      containerStyle.width.replace(/[^0-9\.]/i, "")
-    );
-    const triangle = findDOMNode(this.triangleEl);
-    const triangleStyle = getComputedStyle(triangle);
-    const triangleWidth = parseFloat(
-      triangleStyle.width.replace(/[^0-9\.]/i, "")
-    );
     this.animation = cinderella({
       loop: true,
       direction: "alternate"
     })
       .add({
-        targets: triangle,
+        targets: this.triangle,
         transform: {
           translateX: {
             from: 0,
-            to: `${containerWidth - triangleWidth}px`
+            to: `${DOMUtils.getWidth(this.container) -
+              DOMUtils.getWidth(this.triangle)}px`
           },
           rotateZ: {
             from: 0,
@@ -64,11 +56,13 @@ export default class Example extends Component {
   }
 
   triangleRef = el => {
-    this.triangleEl = el;
+    if (!el) return;
+    this.triangle = findDOMNode(el);
   };
 
   containerRef = el => {
-    this.containerEl = el;
+    if (!el) return;
+    this.container = findDOMNode(el);
   };
 
   render() {

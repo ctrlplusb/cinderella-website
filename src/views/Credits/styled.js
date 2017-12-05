@@ -8,9 +8,6 @@ export const Container = g.div({
   textAlign: "center",
   position: "relative",
   overflow: "hidden"
-  // WebkitBackfaceVisibility: "hidden",
-  // WebkitPerspective: 1000,
-  // WebkitTransform: "translate3d(0, 0, 0)"
 });
 
 export const FadeOutTop = g.div({

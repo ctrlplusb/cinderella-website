@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Code from "../../components/Code";
 import * as Styled from "./styled";
 
-export default class Sample extends Component {
+export default class Demo extends Component {
   constructor(props) {
     super(props);
     this.state = {

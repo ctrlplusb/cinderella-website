@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Triangle({ innerRef }) {
+export default function Triangle({ className, innerRef }) {
   return (
     <svg
       ref={innerRef}
-      className="triangle"
+      className={className}
       width="30"
       height="30"
       viewBox="0 0 30 30"

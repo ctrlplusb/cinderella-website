@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { findDOMNode } from "react-dom";
 import cinderella from "cinderella";
-import * as CommonStyled from "../../styled";
 import * as Styled from "./styled";
 
 export default class Credits extends Component {
@@ -61,7 +60,11 @@ export default class Credits extends Component {
           onMouseOut={this.onCreditMouseOut}
         >
           <Styled.Paragraph>
-            Produced with ❤️ by Sean Matheson<br />
+            Produced with{" "}
+            <span role="img" aria-label="love">
+              ❤️
+            </span>{" "}
+            by Sean Matheson<br />
             <a href="https://twitter.com/controlplusb">@controlplusb</a>
           </Styled.Paragraph>
           <Styled.Paragraph>
@@ -72,7 +75,11 @@ export default class Credits extends Component {
             <a href="https://twitter.com/JulianGarnier">@JulianGarnier</a>
           </Styled.Paragraph>
           <Styled.Paragraph>
-            Huge 💋 to Mark O'Connor<br />
+            Huge{" "}
+            <span role="img" aria-label="kiss">
+              💋
+            </span>{" "}
+            to Mark O'Connor<br />
             for donating the name
           </Styled.Paragraph>
         </div>

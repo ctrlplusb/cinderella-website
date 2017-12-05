@@ -9,7 +9,7 @@ export default function Menu() {
       <span>|</span>
       <Link to="/install">install</Link>
       <span>|</span>
-      <Link to="/tutorial">tutorial</Link>
+      <Link to="/story">tutorial</Link>
       <span>|</span>
       <Link to="/api">api</Link>
       <span>|</span>
