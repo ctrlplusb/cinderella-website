@@ -12,19 +12,19 @@ import Tutorial from "../../views/Tutorial";
 import NotFound from "../../views/NotFound";
 import Analytics from "../Analytics";
 import Theme from "../Theme";
-import * as Styled from "./styled";
+import { Container, Header, Heading, Main } from "./styled";
 
 export default function App() {
   return (
     <Analytics>
       <Router>
         <Theme>
-          <Styled.Container>
-            <Styled.Header>
-              <Styled.Heading>cinderella</Styled.Heading>
+          <Container>
+            <Header>
+              <Heading>cinderella</Heading>
               <Menu />
-            </Styled.Header>
-            <Styled.Main>
+            </Header>
+            <Main>
               <Switch>
                 <Route exact path="/" component={withTracker(Home)} />
                 <Route exact path="/install" component={withTracker(Install)} />
@@ -34,9 +34,9 @@ export default function App() {
                 <Route exact path="/credits" component={withTracker(Credits)} />
                 <Route component={withTracker(NotFound)} />
               </Switch>
-            </Styled.Main>
+            </Main>
             <Footer />
-          </Styled.Container>
+          </Container>
         </Theme>
       </Router>
     </Analytics>

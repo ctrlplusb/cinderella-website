@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, Route, Switch } from "react-router-dom";
+import cinderella from "cinderella";
 import { NarrowContent, Paragraph } from "../../styled";
 
 const demosContext = require.context("./demos", false, /[\w-]+.js/);
@@ -22,8 +23,66 @@ export default class Demos extends Component {
           demo: x.default
         }));
       })
-    ).then(demos => this.setState({ demos }));
+    )
+      .then(demos => {
+        this.onlyIfMounted(() => this.setState({ demos }));
+      })
+      .then(() => {
+        this.onlyIfMounted(() => this.initialize());
+      });
   }
+
+  initialize() {
+    this.hideMenuAnimation = cinderella().add({
+      targets: this.menu,
+      transform: {
+        rotateY: {
+          from: 0,
+          to: "180deg",
+          duration: 1000
+        },
+        opacity: {
+          from: 1,
+          to: 0,
+          delay: 500,
+          duration: 1
+        }
+      }
+    });
+    this.checkMenuState(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.checkMenuState(nextProps);
+  }
+
+  componentWillUnmount() {
+    this.unmounted = true;
+  }
+
+  onlyIfMounted = thunk => {
+    if (this.unmounted) {
+      return;
+    }
+    thunk();
+  };
+
+  checkMenuState = props => {
+    const { match: { isExact } } = props;
+    if (!isExact) {
+      // TODO: Slide out menu
+      console.log("hiding");
+      this.hideMenuAnimation.play();
+    }
+  };
+
+  menuRef = domNode => {
+    this.menu = domNode;
+  };
+
+  demoRef = domNode => {
+    this.demo = domNode;
+  };
 
   render() {
     const { demos } = this.state;
@@ -59,19 +118,23 @@ export default class Demos extends Component {
     return (
       <NarrowContent>
         <Paragraph>Work in progress. Come back later.</Paragraph>
-        {demos.map(({ name }) => (
-          <Paragraph key={name}>
-            <Link to={`${path}/${name}`}>{name}</Link>
-          </Paragraph>
-        ))}
-        <Switch>
-          {demos.map(({ name, demo }) => (
-            <Route
-              key={name}
-              component={demoRouteComponentFactory(name, demo)}
-            />
+        <div ref={this.menuRef}>
+          {demos.map(({ name }) => (
+            <Paragraph key={name}>
+              <Link to={`${path}/${name}`}>{name}</Link>
+            </Paragraph>
           ))}
-        </Switch>
+        </div>
+        <div ref={this.demoRef}>
+          <Switch>
+            {demos.map(({ name, demo }) => (
+              <Route
+                key={name}
+                component={demoRouteComponentFactory(name, demo)}
+              />
+            ))}
+          </Switch>
+        </div>
       </NarrowContent>
     );
   }
