@@ -1,7 +1,3 @@
-/**
- * From ReactGA Community Wiki Page https://github.com/react-ga/react-ga/wiki/React-Router-v4-withTracker
- */
-
 import React, { Component } from "react";
 import GoogleAnalytics from "react-ga";
 
@@ -14,7 +10,7 @@ export default function withTracker(WrappedComponent, options = {}) {
     GoogleAnalytics.pageview(page);
   };
 
-  const HOC = class extends Component {
+  return class extends Component {
     componentDidMount() {
       if (process.env.NODE_ENV === "production") {
         const page = this.props.location.pathname;
@@ -37,6 +33,4 @@ export default function withTracker(WrappedComponent, options = {}) {
       return <WrappedComponent {...this.props} />;
     }
   };
-
-  return HOC;
 }
