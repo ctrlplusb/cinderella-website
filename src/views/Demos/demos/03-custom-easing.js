@@ -8,7 +8,7 @@ export default {
   description: (
     <Paragraph>
       A simple transformation targetting a single property; rotating the target
-      180deg using the default easing (linear) over a period of 1000ms.
+      180deg using a custom easing (easeOutBounce) over a period of 1000ms.
     </Paragraph>
   ),
   source: `cinderella()
@@ -19,6 +19,7 @@ export default {
         from: 0,
         to: '180deg',
         duration: 1000,
+        easing: 'easeOutBounce'
       }
     }
   })
@@ -29,7 +30,8 @@ export default {
       transform: {
         rotate: {
           from: 0,
-          to: "180deg"
+          to: "180deg",
+          easing: "easeOutBounce"
         }
       },
       defaults: {

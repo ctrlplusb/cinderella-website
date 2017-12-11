@@ -24,15 +24,16 @@ export default {
     transform: {
       scale: {
         from: 1,
-        to: 2
+        to: 2,
+        easing: 'easeInOutQuad',
+        duration: 1000
       },
       rotate: {
         from: 0,
-        to: "180deg"
+        to: "180deg",
+        easing: 'easeInOutElastic',
+        duration: 2000
       }
-    },
-    defaults: {
-      duration: 1000
     }
   })
   .play();`,
@@ -42,15 +43,16 @@ export default {
       transform: {
         scale: {
           from: 1,
-          to: 2
+          to: 2,
+          easing: "easeInOutQuad",
+          duration: 1000
         },
         rotate: {
           from: 0,
-          to: "180deg"
+          to: "180deg",
+          easing: "easeInOutElastic",
+          duration: 2000
         }
-      },
-      defaults: {
-        duration: 1000
       }
     }),
   View: () => (

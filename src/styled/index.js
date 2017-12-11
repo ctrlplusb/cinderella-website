@@ -14,6 +14,7 @@ export const H2 = g.h2({
 });
 
 export const NarrowContent = g.div(({ theme }) => ({
+  position: "relative",
   maxWidth: theme.layout.narrow,
   margin: "0 auto",
   width: "100%"

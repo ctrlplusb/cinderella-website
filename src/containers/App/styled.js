@@ -1,11 +1,13 @@
 import g from "glamorous";
 
-export const Container = g.div({
+export const Container = g.div(({ theme }) => ({
   minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
-  padding: "0 15px"
-});
+  padding: "0 15px",
+  zIndex: theme.z.normal,
+  position: "relative"
+}));
 
 export const Header = g.div({
   textAlign: "center"
